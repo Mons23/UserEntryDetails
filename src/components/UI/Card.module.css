@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+}
+.card {
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  transform: translateY(30%);
+  border: 3px teal solid;
+  padding: 3rem;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+}

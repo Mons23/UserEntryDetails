@@ -1,0 +1,16 @@
+.header {
+  color: teal;
+  text-decoration: underline;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  padding: 1rem;
+}

@@ -1,0 +1,9 @@
+.button {
+  font-weight: bold;
+  padding: 0.3rem;
+  background-color: teal;
+  color: aquamarine;
+  border-radius: 10px;
+  border: none;
+  border: 1px solid rgb(8, 8, 8);
+}

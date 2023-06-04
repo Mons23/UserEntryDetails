@@ -1,0 +1,36 @@
+.header {
+  color: teal;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+.button {
+  padding: 5px 30px;
+  margin-top: 10px;
+}
+.editButton {
+  padding: 5px 30px;
+  color: white;
+  background-color: rgba(29, 124, 61, 0.788);
+}
+.table {
+  border: 2px solid teal;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 700px;
+  margin: 10px 10px;
+  padding: 1rem;
+}
+
+.table td,
+th {
+  padding: 5px 10px;
+  border: 1px solid teal;
+  width: 50px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.userDetailsCard {
+  transform: translateY(20%);
+}
