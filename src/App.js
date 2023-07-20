@@ -34,11 +34,9 @@ function App() {
     };
 
     await api.put("/users", request);
+    const userList = await retrieveUsers();
 
-    setUsers((prevState) => {
-      console.log(prevState);
-      return [...prevState, request];
-    });
+    setUsers(userList);
   };
 
   const backHandler = () => {
@@ -50,7 +48,6 @@ function App() {
   };
 
   const deleteDataHandler = (user) => {
-    console.log("Usersss=", user);
     setDeleteUser(true);
     setUsers(user);
   };
