@@ -2,41 +2,48 @@ import React, { useEffect, useState } from "react";
 import InputForm from "./components/UserInput/InputForm";
 import UserDetails from "./components/UserDisplay/UserDetails";
 import Navigation from "./components/UI/Navigation";
+// import { uuid } from "uuidv4";
+import api from "./api/users";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [formSubmitted, setformSubmitted] = useState(false);
   const [deleteUser, setDeleteUser] = useState(false);
 
+  //Retrieve users..
+  const retrieveUsers = async () => {
+    const response = await api.get("/users");
+    return response.data;
+  };
   useEffect(() => {
-    const storedUsers = JSON.parse(localStorage.getItem("userLists"));
-    if (storedUsers && storedUsers.length > 0) {
-      setUsers(storedUsers);
-    }
+    const getAllUsers = async () => {
+      const allUsers = await retrieveUsers();
+      if (allUsers) setUsers(allUsers);
+    };
+
+    getAllUsers();
   }, []);
 
-  const submitInputFormHandler = (userName, userPhone, userLocation) => {
-    console.log(users);
+  const submitInputFormHandler = async (userName, userPhone, userLocation) => {
     setformSubmitted(true);
+    const request = {
+      name: userName,
+      phone: userPhone,
+      location: userLocation,
+      id: Math.random().toString(),
+    };
+
+    await api.put("/users", request);
+
     setUsers((prevState) => {
-      return [
-        ...prevState,
-        {
-          name: userName,
-          phone: userPhone,
-          location: userLocation,
-          id: Math.random().toString(),
-        },
-      ];
+      console.log(prevState);
+      return [...prevState, request];
     });
   };
 
   const backHandler = () => {
     setformSubmitted(false);
   };
-  useEffect(() => {
-    localStorage.setItem("userLists", JSON.stringify(users));
-  }, [users]);
 
   const switchUserDetailsPageHandler = (value) => {
     setformSubmitted(value);

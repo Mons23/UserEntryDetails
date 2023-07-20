@@ -12,7 +12,6 @@ const UserDetails = (props) => {
   };
 
   const confirmEditHandler = (id) => {
-    console.log("Userid-- user", id);
     setEdituserId(id);
   };
   return (
